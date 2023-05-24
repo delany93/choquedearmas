@@ -99,8 +99,18 @@ function segundoMenu() {
     }
 }
 
-// ATAQUES COMBATE BATALLA CHAT // 
-botonAtacar.addEventListener('click', ataqueJugador)
+
+// ATAQUES COMBATE // 
+botonAtacar.addEventListener('click', chequearEleccionAtaque)
+
+function chequearEleccionAtaque() {
+    if (inputPiedra.checked || inputPapel.checked || inputTijera.checked) {
+        ataqueJugador()
+    } else {
+        alert("Selecciona un ataque")
+    }
+}
+
 function ataqueJugador() {
     if (inputPiedra.checked) {
         jugadorArma = 'Piedra Dominante'
