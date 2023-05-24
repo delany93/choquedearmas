@@ -49,7 +49,7 @@ input[type="radio"]:checked+label {
     flex-direction: column;
     align-items: center;
     width: 800px;
-    height: 500px;
+    height: 480px;
     font-size: 18px;
 }
 
@@ -94,8 +94,7 @@ input[type="radio"]:checked+label {
     width: 800px;
     border-radius: 4px;
     justify-content: center;
-    margin-top: 20px;
-
+    margin-top: 0px;
 }
 
 /* Segundo menu */
@@ -107,11 +106,22 @@ input[type="radio"]:checked+label {
     justify-content: space-between;
 }
 
-.perfil-jugador, .perfil-computadora {
-    width: 170px;
+.perfil-jugador {
+    width: 200px;
     height: 100px;
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+    
+}
+
+.perfil-computadora {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
     gap: 4px;
 }
 
@@ -126,21 +136,24 @@ input[type="radio"]:checked+label {
     border-width: 2px;
     border-style: solid;
     border-color: var(--white);
+    background-color: var(--white);
 }
 
 #segundo-menu-p {
-    width: 785px;
+    width: 800px;
     display: flex;
     justify-content: space-between;
     margin-bottom: -10px;
 }
+
+
 
 .arma-usuario {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 800px;
-    height: 300px;
+    height: 342px;
     font-size: 18px;
 }
 
@@ -189,11 +202,18 @@ input[type="radio"]:checked+label {
     object-fit: cover;
 } 
 
+.batalla-chat p {
+    text-align: justify;
+    padding: 10px;
+    font-size: 20px !important;
+    margin-left: 4px;
+    
+}
 
 /* button seleccionar  */
 
 
-.start-btn {
+.start-btn, .atk-btn {
     text-align: center;
 	display: inline-block;
 	margin:5px;
@@ -208,7 +228,11 @@ input[type="radio"]:checked+label {
     box-shadow: 0 .2em gray; 
     cursor: pointer;
 }
-.video-game-button:active, .start-btn:active {
+
+#disabled {
+    background-color: var(--black) !important;
+}
+.video-game-button:active, .start-btn:active, .atk-btn:active  {
 	box-shadow: none;
 	position: relative;
 	top: .2em;
