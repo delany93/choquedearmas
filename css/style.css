@@ -17,7 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    
+
 }
 
 h1 {
@@ -26,13 +26,24 @@ h1 {
     justify-content: center;
     align-items: center;
     font-size: 54px;
-    
+
 }
 
 h2 {
     font-size: 32px;
 }
 
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked+label {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* Primer menu */
 .personaje-usuario {
     display: flex;
     flex-direction: column;
@@ -42,43 +53,39 @@ h2 {
     font-size: 18px;
 }
 
-.arma-usuario {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 800px;
-    height: 500px;
-    font-size: 18px;
-}
-
-.personaje-usuario ul, .arma-usuario ul {
+.personaje-usuario ul {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-content: center;
     padding: 0;
 }
-.personaje-usuario li, .arma-usuario li {
+
+.personaje-usuario li {
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 4px;
-}
-
-.cartas-imagenes {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
     border-width: 2px;
     border-style: solid;
     border-color: var(--white);
+}
+
+.pj-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     cursor: pointer;
 }
 
+.personaje-container p {
+    display: flex;
+    justify-content: center;
+}
 
-.batalla {
+.batalla-chat {
     background-color: var(--white);
     color: var(--black);
     display: flex;
@@ -87,44 +94,127 @@ h2 {
     width: 800px;
     border-radius: 4px;
     justify-content: center;
-    
+    margin-top: 20px;
+
 }
 
-.perfiles {
+/* Segundo menu */
+
+.perfiles-jugadores {
     width: 800px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.jugador-perfil {
-    width: 100px;
+
+.perfil-jugador, .perfil-computadora {
+    width: 170px;
     height: 100px;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
+    gap: 4px;
 }
 
-.jugador-perfil p, .computadora-perfil p {
-    width: 50%;
-    height: 50%;
+.perfil-jugador p, .perfil-computadora p {
+    margin: 0px;
 }
 
-.computadora-perfil {
+.perfil-jugador img, .perfil-computadora img {
     width: 100px;
     height: 100px;
-    display: flex;
-    align-items: flex-end;
-}
-
-.jugador-perfil img, .computadora-perfil img {
-    width: 50%;
-    height: 70%;
     object-fit: cover;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--white);
+}
+
+#segundo-menu-p {
+    width: 785px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -10px;
+}
+
+.arma-usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 300px;
+    font-size: 18px;
 }
 
 
+.arma-usuario h2 {
+    margin: 0px;
+}
 
+.arma-usuario ul {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+    gap: 10px;
+}
+
+.arma-usuario ul li {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--white);
+}
+
+.arma-usuario ul li p {
+    display: flex;
+    justify-content: center;
+
+}
+
+.atk-img {
+    width: 128px;
+    height: 120px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.jugador-perfil img,
+.computadora-perfil img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+} 
+
+
+/* button seleccionar  */
+
+
+.start-btn {
+    text-align: center;
+	display: inline-block;
+	margin:5px;
+    padding: 10px 10px 10px 10px ;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: gray;
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;
+}
+.video-game-button:active, .start-btn:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+
+/*  */
 .inactive {
     display: none;
 }
-
-

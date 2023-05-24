@@ -19,53 +19,79 @@
     <div class="personaje-usuario">
         <h2>SELECCIONA TU PERSONAJE</h2>
         <ul>
-            <li id="roca">Guardían de la Roca
-                <img class="cartas-imagenes" id="roca-img" alt="Cambiar imagen"
-                    onmouseout="this.src='./img/guardian de la roca 1.jpg';"
-                    onmouseover="this.src='./img/guardian de la roca 2.jpg';" src="./img/guardian de la roca 1.jpg" />
+            <li class="personaje-container">
+                <input type="radio" name="pj" id="guardian-input"/>
+                <label for="guardian-input">
+                    <p>Guardián de la Roca</p>
+                    <img class="pj-img" src="./img/GUARDIAN DE LA ROCA.png" alt="piedra">
+                </label>
             </li>
-            <li id="papel">Maestro de las Hojas
-
-                <img class="cartas-imagenes" id="papel-img" alt="Cambiar imagen"
-                    onmouseout="this.src='./img/maestro de las hojas 1.jpg';"
-                    onmouseover="this.src='./img/maestro de las hojas 2.jpg';" src="./img/maestro de las hojas 1.jpg" />
+            <li class="personaje-container">
+                <input type="radio" name="pj" id="maestro-input" />
+                <label for="maestro-input">
+                    <p>Maestro de las Hojas</p>
+                    <img class="pj-img" src="./img/MAESTRO DE LAS HOJAS.png" alt="papel">
+                </label>
             </li>
-            <li id="tijera">Reina de La Corte ❤
-                <img class="cartas-imagenes" id="tijera-img" alt="Cambiar imagen"
-                    onmouseout="this.src='./img/Reina de la corte 1.jpg';"
-                    onmouseover="this.src='./img/Reina de la corte 2.jpg';" src="./img/Reina de la corte 1.jpg" />
-            </li>
-        </ul>
-
-        <button>START</button>
-    </div>
-
-    <div class="arma-usuario">
-        <h2>SELECCIONA TU ARMA</h2>
-        <ul>
-            <li>Piedra Dominante
-                <img class="cartas-imagenes" src="./img/Piedra Dominante.jpg" alt="piedra">
-            </li>
-            <li>Hoja Cortante
-                <img class="cartas-imagenes" src="./img/Hoja Cortante.jpg" alt="papel">
-            </li>
-            <li>Tijera Vengadora
-                <img class="cartas-imagenes" src="./img/Tijera Vengadora.jpg" alt="tijera">
+            <li class="personaje-container">
+                <input type="radio" name="pj" id="reina-input" />
+                <label for="reina-input">
+                    <p>Reina de La Corte</p>
+                    <img class="pj-img" src="./img/REINA DE LA CORTE.png" alt="tijera">
+                </label>
             </li>
         </ul>
+
+        <button class="start-btn" id="btn">SELECCIONAR</button>
     </div>
 
-    <div class="perfiles-jugadores">
-        <div class="jugador-perfil">
-            <img src="./img/probando.png" alt="piedra">
-            <p>❤❤❤</p>
-        </div>
-        <div class="computadora-perfil">
-            <p>❤❤❤</p>
-            <img src="./img/probando.png" alt="piedra">
+    <div class="segundo-menu">
+        <span id="segundo-menu-p">
+            <p>Guardian de la Roca</p>
+            <p>Esqueleto Infernal</p>
+        </span>
+        <div class="perfiles-jugadores">
+            <div class="perfil-jugador">
+                <img src="./img/GUARDIAN DE LA ROCA.png" alt="piedra">
+                <p class="vidas-jugador">❤❤❤</p>
+            </div>
 
+            <div class="perfil-computadora">
+                <p class="vidas-computadora">❤❤❤</p>
+                <img src="./img/ESQUELETO INFERNA.png" alt="piedra">
+            </div>
+        </div>
+
+        <div class="arma-usuario">
+            <h2>SELECCIONA TU ATAQUE</h2>
+            <ul>
+                <li class="ataque-container">
+                    <input type="radio" name="atk" id="piedra-input" />
+                    <label for="piedra-input">
+                        <p>Piedra Dominante</p>
+                        <img class="atk-img" src="./img/Piedra Dominante.png" alt="piedra">
+                    </label>
+                </li>
+                <li class="ataque-container">
+                    <input type="radio" name="atk" id="hoja-input" />
+                    <label for="hoja-input">
+                        <p>Hoja Cortante</p>
+                        <img class="atk-img" src="./img/Hoja Cortante.png" alt="papel">
+                    </label>
+                </li>
+                <li class="ataque-container">
+                    <input type="radio" name="atk" id="tijera-input" />
+                    <label for="tijera-input">
+                        <p>Tijera Vengadora</p>
+                        <img class="atk-img" src="./img/Tijera Vengadora.png" alt="tijera">
+                    </label>
+                </li>
+            </ul>
+        
+            <button class="start-btn" id="btn">ATACAR</button>
         </div>
     </div>
+
 
     <div class="batalla-chat">
     </div>
