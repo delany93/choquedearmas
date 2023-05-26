@@ -148,8 +148,6 @@ input[type="radio"]:checked+label {
     margin-bottom: -10px;
 }
 
-
-
 .arma-usuario {
     display: flex;
     flex-direction: column;
@@ -158,7 +156,6 @@ input[type="radio"]:checked+label {
     height: 342px;
     font-size: 18px;
 }
-
 
 .arma-usuario h2 {
     margin: 0px;
@@ -244,13 +241,35 @@ input[type="radio"]:checked+label {
     top: .2em;
 }
 
+/* rayitas animation */
+.probando {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: max-content;
+    background: linear-gradient(90deg, #f0f6f0 50%, transparent 50%), linear-gradient(90deg, #f0f6f0, transparent 50%), linear-gradient(0deg, #f0f6f0 50%, transparent 50%), linear-gradient(0deg, #f0f6f0 50%, transparent 50%);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+    padding: 10px;
+    animation: border-dance 4s infinite linear;
+}
+
+@keyframes border-dance {
+    0% {
+        background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+    }
+
+    100% {
+        background-position: 100% 0, 0 100%, 0 0, 100% 100%;
+    }
+}
 /*  */
 .inactive {
     display: none;
 }
 
 /* Responsive */
-@media (max-width: 800px) {
+@media (max-width: 819px) {
     body {
         justify-content: flex-start;
     }
@@ -319,9 +338,13 @@ input[type="radio"]:checked+label {
     .vidas-computadora, .vidas-jugador {
         font-size: 14px;
     }
+
+    .probando {
+        width: 400px;
+    }
 }
 
-@media (max-width: 399px) {
+@media (max-width: 409px) {
     body {
         justify-content: flex-start;
     }
@@ -409,4 +432,9 @@ input[type="radio"]:checked+label {
     .arma-usuario ul li p {
         font-size: 12px;
     }
+
+    .probando {
+        width: 310px;
+    }
 }
+

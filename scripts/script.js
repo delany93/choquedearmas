@@ -85,15 +85,15 @@ function segundoMenu() {
 
 
     if (inputGuardian.checked) {
-        pjSelect.setAttribute('src', './img/GUARDIAN DE LA ROCA.png')
+        pjSelect.setAttribute('src', '../img/GUARDIAN DE LA ROCA.png')
         pNombrePJ.innerText = 'Guardian de la Roca'
         nombreJugador = 'Guardian de la Roca';
     } else if (inputMaestro.checked) {
-        pjSelect.setAttribute('src', './img/MAESTRO DE LAS HOJAS.png')
+        pjSelect.setAttribute('src', '../img/MAESTRO DE LAS HOJAS.png')
         pNombrePJ.innerText = 'Maestro de las Hojas'
         nombreJugador = 'Maestro de las Hojas';
     } else if (inputReina.checked) {
-        pjSelect.setAttribute('src', './img/REINA DE LA CORTE.png')
+        pjSelect.setAttribute('src', '../img/REINA DE LA CORTE.png')
         pNombrePJ.innerText = 'Reina de La Corte'
         nombreJugador = 'Reina de La Corte';
     }

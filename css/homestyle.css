@@ -90,14 +90,12 @@ h1 {
 .menu {
     width: 300px;
     height: 350px;
-    /* border-width: 2px;
-    border-style: solid;
-    border-color: var(--white); */
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
     background-color: rgba(34, 35, 35, 0.8);
+    margin-top: 100px;
 }
 
 .menu ul {
@@ -142,16 +140,17 @@ h1 {
     background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
     padding: 10px;
     animation: border-dance 4s infinite linear;
-} 
+}
 
 @keyframes border-dance {
-        0% {
-          background-position: 0 0, 100% 100%, 0 100%, 100% 0;
-        }
-        100% {
-          background-position: 100% 0, 0 100%, 0 0, 100% 100%;
-        }
-      }
+    0% {
+        background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+    }
+
+    100% {
+        background-position: 100% 0, 0 100%, 0 0, 100% 100%;
+    }
+}
 
 
 /* ARMAS */
@@ -163,6 +162,7 @@ h1 {
     justify-content: flex-start;
     align-items: center;
 }
+
 .img-grande {
     width: 100px;
     height: 100px;
@@ -238,14 +238,17 @@ h3 {
 .portada h1 {
     margin-top: -110px;
 }
+
 .container h2 {
     font-size: 28px;
     text-align: center;
 }
+
 #p-historia {
     font-size: 20px;
     text-align: justify;
 }
+
 .historia {
     background-color: rgba(34, 35, 35, 0.8);
     width: 650px;
@@ -257,10 +260,12 @@ h3 {
 #instrucciones-de-como-jugar {
     background-color: rgba(34, 35, 35, 0.8);
 }
+
 .como-jugar {
     text-align: justify;
     width: 650px;
 }
+
 .como-jugar p {
     margin-top: 30px;
     text-align: justify;
@@ -280,6 +285,7 @@ h3 {
     .historia {
         width: 340px;
     }
+
     .como-jugar {
         width: 350px;
     }
