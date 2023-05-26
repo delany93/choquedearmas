@@ -20,7 +20,11 @@ body {
 
 h1 {
     font-family: 'Syne Mono', monospace;
-    font-size: 54px;
+    font-size: 80px;
+    text-align: center;
+    width: 800px;
+    margin: 0;
+    z-index: 4;
 }
 
 .div {
@@ -30,42 +34,267 @@ h1 {
     flex-direction: column;
 }
 
-h1,
-.start-btn {
-  margin: 0;
-}
 
-.start-btn{
+.start-btn {
     text-align: center;
-	display: inline-block;
+    display: inline-block;
     font-size: 40px;
-	margin:5px;
-    padding: 10px 10px 10px 10px ;
+    margin: 5px;
+    padding: 10px 10px 10px 10px;
     background-color: lightgray;
     text-shadow: -1px -1px black, 1px 1px white;
     color: gray;
     -webkit-border-radius: 7px;
-	-moz-border-radius: 7px;
-	-o-border-radius: 7px;
-	border-radius: 7px;
-    box-shadow: 0 .2em gray; 
+    -moz-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+    box-shadow: 0 .2em gray;
     cursor: pointer;
-
+    margin: 0;
+    z-index: 4;
+    margin-top: -40px;
+    text-decoration: none;
 }
+
 .start-btn:active {
-	box-shadow: none;
-	position: relative;
-	top: .2em;
+    box-shadow: none;
+    position: relative;
+    top: .2em;
 }
 
 .heroes {
     position: absolute;
     top: 0;
     left: 0;
-  }
-  
-  .villano {
+    z-index: -1;
+    width: 350px;
+}
+
+.villano {
     position: absolute;
     bottom: 0;
     right: 0;
-  }
+    z-index: -1;
+    width: 350px;
+}
+
+.portada {
+    width: 800px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu {
+    width: 300px;
+    height: 350px;
+    /* border-width: 2px;
+    border-style: solid;
+    border-color: var(--white); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: rgba(34, 35, 35, 0.8);
+}
+
+.menu ul {
+    font-size: 54px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu ul a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.menu-lista {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-lista::before {
+    content: "";
+    background-color: var(--white);
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-lista:hover::before {
+    transform: scaleX(1);
+}
+
+.menu {
+    width: max-content;
+    background: linear-gradient(90deg, #f0f6f0 50%, transparent 50%), linear-gradient(90deg, #f0f6f0, transparent 50%), linear-gradient(0deg, #f0f6f0 50%, transparent 50%), linear-gradient(0deg, #f0f6f0 50%, transparent 50%);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+    padding: 10px;
+    animation: border-dance 4s infinite linear;
+} 
+
+@keyframes border-dance {
+        0% {
+          background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+        }
+        100% {
+          background-position: 100% 0, 0 100%, 0 0, 100% 100%;
+        }
+      }
+
+
+/* ARMAS */
+
+.instrucciones {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.img-grande {
+    width: 100px;
+    height: 100px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--white);
+}
+
+.img-pequeña {
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--white);
+}
+
+.contenido {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.contenido p {
+    text-align: justify;
+    margin: 0px;
+}
+
+.container {
+    width: 700px;
+    background-color: rgba(34, 35, 35, 0.8);
+}
+
+.instrucciones h2 {
+    text-align: center;
+    font-size: 28px;
+    height: 0px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.p-final {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#instrucciones-volver-btn {
+    margin-top: 20px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* PERSONAJES */
+
+#enemigo {
+
+    flex-direction: row-reverse !important;
+}
+
+#enemigo h3 {
+    text-align: end;
+}
+
+#personajes-h1 {
+    margin-top: -110px;
+}
+
+/* HISTORIA */
+.portada h1 {
+    margin-top: -110px;
+}
+.container h2 {
+    font-size: 28px;
+    text-align: center;
+}
+#p-historia {
+    font-size: 20px;
+    text-align: justify;
+}
+.historia {
+    background-color: rgba(34, 35, 35, 0.8);
+    width: 650px;
+    text-align: justify;
+}
+
+/* INSTRUCCIONES */
+
+#instrucciones-de-como-jugar {
+    background-color: rgba(34, 35, 35, 0.8);
+}
+.como-jugar {
+    text-align: justify;
+    width: 650px;
+}
+.como-jugar p {
+    margin-top: 30px;
+    text-align: justify;
+}
+
+
+@media (max-width: 700px) {
+    h1 {
+        width: 300px;
+        font-size: 50px;
+    }
+
+    .container {
+        width: 350px;
+    }
+
+    .historia {
+        width: 340px;
+    }
+    .como-jugar {
+        width: 350px;
+    }
+}
+
+@media (max-width: 365px) {
+    .container {
+        width: 300px;
+    }
+
+    .historia {
+        width: 300px;
+    }
+
+    .como-jugar {
+        width: 300px;
+    }
+}
