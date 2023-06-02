@@ -209,8 +209,49 @@ input[type="radio"]:checked+label {
 
 }
 
-/* button seleccionar  */
+.resultado {
+    background:var(--white);
+    color: var(--black);
+    width: 350px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
+.botones-juego a {
+    text-decoration: none;
+}
+
+.resultado p {
+    text-align: center;
+}
+
+/* Mensaje POP-UP */
+.pop-up {
+    background:var(--white);
+    font-size: 24px;
+    color: var(--black);
+    width: 250px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* botones  */
 
 .start-btn,
 .atk-btn {
@@ -241,8 +282,15 @@ input[type="radio"]:checked+label {
     top: .2em;
 }
 
+#boton-final {
+    position: absolute;
+    text-decoration: none;
+    font-size: 18px;
+    bottom: 5%;
+    left: 0%;
+}
 /* rayitas animation */
-.probando {
+.juego {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -252,6 +300,7 @@ input[type="radio"]:checked+label {
     background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
     padding: 10px;
     animation: border-dance 4s infinite linear;
+    position: relative;
 }
 
 @keyframes border-dance {
@@ -263,7 +312,22 @@ input[type="radio"]:checked+label {
         background-position: 100% 0, 0 100%, 0 0, 100% 100%;
     }
 }
-/*  */
+
+.animacion-stop {
+    animation: border-dance 4000s infinite linear;
+}
+
+/* oscuro  */
+
+.darken {
+    width: 100%;
+    height: calc(100%);
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
 .inactive {
     display: none;
 }
@@ -339,7 +403,7 @@ input[type="radio"]:checked+label {
         font-size: 14px;
     }
 
-    .probando {
+    .juego {
         width: 400px;
     }
 }
@@ -433,7 +497,7 @@ input[type="radio"]:checked+label {
         font-size: 12px;
     }
 
-    .probando {
+    .juego {
         width: 310px;
     }
 }

@@ -9,6 +9,10 @@ const maestroDeLasHojas = document.getElementById('maestro input');
 const reinaDeLaCorte = document.getElementById('reina input');
 const botonSeleccionar = document.querySelector('.start-btn');
 const botonAtacar = document.querySelector('.atk-btn')
+const htmlPOPUP = document.querySelector('.pop-up');
+const mensajePOPUP = document.querySelector('.mensaje-pop-up')
+
+
 
 const inputGuardian = document.getElementById('guardian-input');
 const inputMaestro = document.getElementById('maestro-input');
@@ -16,6 +20,7 @@ const inputReina = document.getElementById('reina-input');
 const inputPiedra = document.getElementById('piedra-input');
 const inputPapel = document.getElementById('papel-input');
 const inputTijera = document.getElementById('tijera-input');
+let pNombrePJ = document.getElementById('pj-name')
 
 const vidasJugador = document.querySelector('.vidas-jugador');
 const vidasComputadora = document.querySelector('.vidas-computadora');
@@ -26,25 +31,20 @@ const vidas2 = '❤❤'
 const vidas1 = '❤'
 let contadorVidasJugador = 5
 let contadorVidasComputadora = 5
-
-
-let pNombrePJ = document.getElementById('pj-name')
-
 let jugadorArma
 let computadoraArma
 let computadora
 let nombreJugador
+let resultado
+const htmlPResultado = document.querySelector('.p-resultado')
 
 
-function aleatorio() {
-    computadora = Math.floor(Math.random() * 3) + 1;
-    return computadora
-}
 
 
 // Inicio // 
 htmlSegundoMenu.classList.add('inactive');
 htmlResultado.classList.add('inactive');
+htmlPOPUP.classList.add('inactive');
 
 // Frase pagina principal // 
 let frasesMenuPrincipal = [
@@ -71,7 +71,11 @@ function chequearEleccionPersonaje() {
     if (inputGuardian.checked || inputMaestro.checked || inputReina.checked) {
         segundoMenu()
     } else {
-        alert("Selecciona un personaje")
+        mensajePOPUP.innerHTML = 'SELECCIONA UN PERSONAJE'
+        htmlPOPUP.classList.remove('inactive');
+        setTimeout(function () {
+            htmlPOPUP.classList.add('inactive');
+        }, 2000);
     }
 }
 
@@ -79,6 +83,7 @@ function chequearEleccionPersonaje() {
 function segundoMenu() {
     htmlSegundoMenu.classList.remove('inactive');
     personajeUsuario.classList.add('inactive');
+    htmlPOPUP.classList.add('inactive');
 
 
     let pjSelect = document.querySelector('.pj-select');
@@ -107,11 +112,16 @@ function chequearEleccionAtaque() {
     if (inputPiedra.checked || inputPapel.checked || inputTijera.checked) {
         ataqueJugador()
     } else {
-        alert("Selecciona un ataque")
+        mensajePOPUP.innerHTML = 'SELECCIONA UN ATAQUE'
+        htmlPOPUP.classList.remove('inactive');
+        setTimeout(function () {
+            htmlPOPUP.classList.add('inactive');
+        }, 2000);
     }
 }
 
 function ataqueJugador() {
+
     if (inputPiedra.checked) {
         jugadorArma = 'Piedra Dominante'
     } else if (inputPapel.checked) {
@@ -120,6 +130,11 @@ function ataqueJugador() {
         jugadorArma = 'Tijera Vengadora'
     }
     ataqueComputadora()
+}
+
+function aleatorio() {
+    computadora = Math.floor(Math.random() * 3) + 1;
+    return computadora
 }
 
 function ataqueComputadora() {
@@ -136,15 +151,12 @@ function ataqueComputadora() {
 
 function combate() {
     if (jugadorArma == computadoraArma) {
-        resultado = 'EMPATE'
         htmlFraseAleatoria.innerHTML = fraseAleatoriaEmpate()
     } else if ((jugadorArma == 'Piedra Dominante' && computadoraArma == 'Tijera Vengadora') || (jugadorArma == 'Hoja Cortante' && computadoraArma == 'Piedra Dominante') || (jugadorArma == 'Tijera Vengadora' && computadoraArma == 'Hoja Cortante')) {
-        resultado = 'GANASTE'
         htmlFraseAleatoria.innerHTML = fraseAleatoriaGanadora()
         contadorVidasComputadora--
         vidasContador()
     } else {
-        resultado = 'PERDISTE';
         htmlFraseAleatoria.innerHTML = fraseAleatoriaPerdedora()
         contadorVidasJugador--
         vidasContador()
@@ -173,6 +185,7 @@ function vidasContador() {
             vidasJugador.innerHTML = '';
             botonAtacar.disabled = true;
             botonAtacar.setAttribute('id', 'disabled');
+            resultadoDeBatalla(fraseFinalPerdedoraP)
     }
 
     switch (contadorVidasComputadora) {
@@ -195,6 +208,7 @@ function vidasContador() {
             vidasComputadora.innerHTML = '';
             botonAtacar.disabled = true;
             botonAtacar.setAttribute('id', 'disabled');
+            resultadoDeBatalla(fraseFinalGanadoraP)
     }
 }
 
@@ -251,6 +265,35 @@ function fraseAleatoriaEmpate() {
     return fraseAleatoriaEmpate
 }
 
+// Frases de resultado 
+let frasefinalganadora = [
+    "¡Ganaste la partida! Tu determinación te llevó a la victoria",
+    "Enhorabuena, ganaste la guerra: Tu estrategia fue impecable",
+    "¡Lograste la victoria! Tu perseverancia y habilidad te llevaron al triunfo",
+    "Has alcanzado la gloria. Tu esfuerzo y dedicación se ven reflejados en esta victoria",
+    "Victoria aplastante: ¡Ganaste con valentía y habilidad!"
+]
+
+let frasefinalperdedora = [
+    "Game Over: La batalla ha terminado",
+    "Derrota aplastante: Mejora tus habilidades y vuelve a intentarlo",
+    "Tu valentía no fue suficiente: ¡Intenta nuevamente!",
+    "La derrota es amarga: ¡Practica y desafía al Esqueleto otra vez!",
+    "Esqueleto Infernal te ha superado: ¡Vuelve a entrenar y lucha con honor!"
+]
+let fraseFinalGanadoraP = obtenerFraseAleatoria(frasefinalganadora);
+let fraseFinalPerdedoraP = obtenerFraseAleatoria(frasefinalperdedora);
 
 
+// Resultado de batalla
+
+function resultadoDeBatalla(mensaje) {
+    const darkenScreen = document.querySelector(".darken");
+    darkenScreen.classList.remove("inactive");
+    htmlResultado.classList.remove('inactive');
+    htmlPOPUP.classList.add(".darken")
+    htmlPResultado.innerHTML = mensaje
+    const elemento = document.querySelector('.juego');
+    elemento.style.animationDuration = '4000s';
+}
 

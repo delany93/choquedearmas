@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&family=VT323&display=swap');
+
+:root {
+    --black: #222323;
+    --white: #f0f6f0;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    /* min-height: 100vh; */
+}
+
+.choque-de-armas {
+    font-family: 'Syne Mono', monospace;
+    font-size: 80px;
+    text-align: center;
+    width: 800px;
+    margin: 0;
+    z-index: 4;
+}
+
+.div {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.start-btn {
+    text-align: center;
+    display: inline-block;
+    font-size: 40px;
+    margin: 5px;
+    padding: 10px 10px 10px 10px;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: gray;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+    box-shadow: 0 .2em gray;
+    cursor: pointer;
+    margin: 0;
+    z-index: 4;
+    margin-top: -40px;
+    text-decoration: none;
+}
+
+.start-btn:active {
+    box-shadow: none;
+    position: relative;
+    top: .2em;
+}
+
+.heroes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 350px;
+}
+
+.villano {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    width: 350px;
+}
+
+.caja-grande {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.caja-grande h2 {
+    text-align: center;
+    font-size: 28px;
+    height: 0px;
+}
+
+#caja-mediana {
+    background-color: rgba(34, 35, 35, 0.8);
+
+}
+
+#titulo-h2 {
+    margin-bottom: 50px;
+    font-size: 36px;
+}
+
+#menu-volver-btn {
+    margin-top: 20px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.caja-chica {
+    text-align: justify;
+    font-size: 20px;
+    width: 700px;
+}
+
+.caja-chica p {
+    margin-top: 30px;
+    text-align: justify;
+}
+
+@media (max-width: 700px) {
+    h1 {
+        width: 300px;
+        font-size: 50px;
+    }
+    .caja-chica {
+        width: 350px;
+    }
+
+    .choque-de-armas {
+        font-size: 45px;
+    }
+
+    #titulo-h2 {
+        font-size: 28px;
+    }
+}
+
+
+@media (max-width: 365px) {
+    .caja-chica {
+        width: 300px;
+    }
+
+    .choque-de-armas {
+        font-size: 35px;
+    }
+}

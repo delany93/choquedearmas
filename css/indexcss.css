@@ -27,13 +27,6 @@ h1 {
     z-index: 4;
 }
 
-.div {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
 
 .start-btn {
     text-align: center;
@@ -76,6 +69,9 @@ h1 {
     right: 0;
     z-index: -1;
     width: 350px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 .portada {
@@ -94,8 +90,6 @@ h1 {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    background-color: rgba(34, 35, 35, 0.8);
-    margin-top: 100px;
 }
 
 .menu ul {
@@ -106,6 +100,9 @@ h1 {
     align-items: center;
 }
 
+.menu ul li {
+    list-style: none;
+}
 .menu ul a {
     text-decoration: none;
     color: var(--white);
@@ -140,6 +137,7 @@ h1 {
     background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
     padding: 10px;
     animation: border-dance 4s infinite linear;
+    background-color: rgba(34, 35, 35, 0.8);
 }
 
 @keyframes border-dance {
@@ -153,154 +151,10 @@ h1 {
 }
 
 
-/* ARMAS */
-
-.instrucciones {
-    width: 800px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.img-grande {
-    width: 100px;
-    height: 100px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--white);
-}
-
-.img-pequeña {
-    width: 50px;
-    height: 50px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--white);
-}
-
-.contenido {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
-
-.contenido p {
-    text-align: justify;
-    margin: 0px;
-}
-
-.container {
-    width: 700px;
-    background-color: rgba(34, 35, 35, 0.8);
-}
-
-.instrucciones h2 {
-    text-align: center;
-    font-size: 28px;
-    height: 0px;
-}
-
-h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-.p-final {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#instrucciones-volver-btn {
-    margin-top: 20px;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-/* PERSONAJES */
-
-#enemigo {
-
-    flex-direction: row-reverse !important;
-}
-
-#enemigo h3 {
-    text-align: end;
-}
-
-#personajes-h1 {
-    margin-top: -110px;
-}
-
-/* HISTORIA */
-.portada h1 {
-    margin-top: -110px;
-}
-
-.container h2 {
-    font-size: 28px;
-    text-align: center;
-}
-
-#p-historia {
-    font-size: 20px;
-    text-align: justify;
-}
-
-.historia {
-    background-color: rgba(34, 35, 35, 0.8);
-    width: 650px;
-    text-align: justify;
-}
-
-/* INSTRUCCIONES */
-
-#instrucciones-de-como-jugar {
-    background-color: rgba(34, 35, 35, 0.8);
-}
-
-.como-jugar {
-    text-align: justify;
-    width: 650px;
-}
-
-.como-jugar p {
-    margin-top: 30px;
-    text-align: justify;
-}
-
-
 @media (max-width: 700px) {
     h1 {
         width: 300px;
         font-size: 50px;
     }
 
-    .container {
-        width: 350px;
-    }
-
-    .historia {
-        width: 340px;
-    }
-
-    .como-jugar {
-        width: 350px;
-    }
-}
-
-@media (max-width: 365px) {
-    .container {
-        width: 300px;
-    }
-
-    .historia {
-        width: 300px;
-    }
-
-    .como-jugar {
-        width: 300px;
-    }
 }
