@@ -13,7 +13,6 @@ const htmlPOPUP = document.querySelector('.pop-up');
 const mensajePOPUP = document.querySelector('.mensaje-pop-up')
 
 
-
 const inputGuardian = document.getElementById('guardian-input');
 const inputMaestro = document.getElementById('maestro-input');
 const inputReina = document.getElementById('reina-input');
@@ -21,6 +20,7 @@ const inputPiedra = document.getElementById('piedra-input');
 const inputPapel = document.getElementById('papel-input');
 const inputTijera = document.getElementById('tijera-input');
 let pNombrePJ = document.getElementById('pj-name')
+
 
 const vidasJugador = document.querySelector('.vidas-jugador');
 const vidasComputadora = document.querySelector('.vidas-computadora');
@@ -45,19 +45,27 @@ const htmlPResultado = document.querySelector('.p-resultado')
 htmlSegundoMenu.classList.add('inactive');
 htmlResultado.classList.add('inactive');
 htmlPOPUP.classList.add('inactive');
+let htmlFraseAleatoria = document.createElement('p');
+htmlBatallaChat.appendChild(htmlFraseAleatoria);
+fraseMenuPrincipal()
 
 // Frase pagina principal // 
-let frasesMenuPrincipal = [
+function fraseMenuPrincipal() {
+    let frasesMenuPrincipal = [
     "Prepárate para la batalla, el desafío está por comenzar.",
     "El destino te llama a la acción, selecciona tu equipo y adéntrate en la batalla.",
     "Elige sabiamente tus armas y prepárate para la épica contienda que se avecina.",
     "La guerra espera a los valientes, selecciona tu equipo y únete a la batalla.",
     "Antes de enfrentar al enemigo, elige tus herramientas con sabiduría y forja tu camino hacia la victoria."
 ]
-let htmlFraseAleatoria = document.createElement('p');
 let fraseAleatoria = obtenerFraseAleatoria(frasesMenuPrincipal);
 htmlFraseAleatoria.innerHTML = fraseAleatoria;
-htmlBatallaChat.appendChild(htmlFraseAleatoria);
+}
+
+
+
+
+
 
 function obtenerFraseAleatoria(frases) {
     var indiceAleatorio = Math.floor(Math.random() * frases.length);
@@ -84,6 +92,7 @@ function segundoMenu() {
     htmlSegundoMenu.classList.remove('inactive');
     personajeUsuario.classList.add('inactive');
     htmlPOPUP.classList.add('inactive');
+    htmlFraseAleatoria.innerHTML = '¡Es tu turno de atacar!'
 
 
     let pjSelect = document.querySelector('.pj-select');
@@ -110,10 +119,11 @@ botonAtacar.addEventListener('click', chequearEleccionAtaque)
 
 function chequearEleccionAtaque() {
     if (inputPiedra.checked || inputPapel.checked || inputTijera.checked) {
+        botonAtacarDeshabilitar()
         ataqueJugador()
     } else {
-        mensajePOPUP.innerHTML = 'SELECCIONA UN ATAQUE'
         htmlPOPUP.classList.remove('inactive');
+        mensajePOPUP.innerHTML = 'SELECCIONA UN ATAQUE'
         setTimeout(function () {
             htmlPOPUP.classList.add('inactive');
         }, 2000);
@@ -121,15 +131,23 @@ function chequearEleccionAtaque() {
 }
 
 function ataqueJugador() {
-
+    
     if (inputPiedra.checked) {
         jugadorArma = 'Piedra Dominante'
+        inputPiedra.checked = false
+        
+        // mostrarMensajeTemporal(`${nombreJugador} ha elegido Piedra Dominante`, 3000);
     } else if (inputPapel.checked) {
         jugadorArma = 'Hoja Cortante'
+        inputPapel.checked = false
+        // mostrarMensajeTemporal(`${nombreJugador} ha elegido Hoja Cortante`, 3000);
     } else if (inputTijera.checked) {
         jugadorArma = 'Tijera Vengadora'
+        inputTijera.checked = false
+        // mostrarMensajeTemporal(`${nombreJugador} ha elegido Tijera Vengadora`, 3000);
     }
-    ataqueComputadora()
+    mostrarMensajeTemporal(`${nombreJugador} ha elegido ` + jugadorArma, 3000);
+    setTimeout(ataqueComputadora, 3000);
 }
 
 function aleatorio() {
@@ -138,20 +156,26 @@ function aleatorio() {
 }
 
 function ataqueComputadora() {
-    computadora = aleatorio()
-    if (computadora == 1) {
-        computadoraArma = 'Piedra Dominante'
-    } else if (computadora == 2) {
-        computadoraArma = 'Hoja Cortante'
-    } else if (computadora == 3) {
-        computadoraArma = 'Tijera Vengadora'
-    }
-    combate()
+    mostrarMensajeTemporal('¡El Esqueleto Infernal se prepara para atacar!', 3000);
+
+    setTimeout(function () {
+        computadora = aleatorio()
+        if (computadora == 1) {
+            computadoraArma = 'Piedra Dominante'
+        } else if (computadora == 2) {
+            computadoraArma = 'Hoja Cortante'
+        } else if (computadora == 3) {
+            computadoraArma = 'Tijera Vengadora'
+        }
+        mostrarMensajeTemporal('Esqueleto infernal ha elegido ' + computadoraArma + ' ¡Prepárate!', 3000);
+        setTimeout(combate, 3000);
+    }, 3000);
 }
 
 function combate() {
     if (jugadorArma == computadoraArma) {
         htmlFraseAleatoria.innerHTML = fraseAleatoriaEmpate()
+
     } else if ((jugadorArma == 'Piedra Dominante' && computadoraArma == 'Tijera Vengadora') || (jugadorArma == 'Hoja Cortante' && computadoraArma == 'Piedra Dominante') || (jugadorArma == 'Tijera Vengadora' && computadoraArma == 'Hoja Cortante')) {
         htmlFraseAleatoria.innerHTML = fraseAleatoriaGanadora()
         contadorVidasComputadora--
@@ -183,8 +207,7 @@ function vidasContador() {
             break
         default:
             vidasJugador.innerHTML = '';
-            botonAtacar.disabled = true;
-            botonAtacar.setAttribute('id', 'disabled');
+            botonAtacarDeshabilitar()
             resultadoDeBatalla(fraseFinalPerdedoraP)
     }
 
@@ -206,14 +229,34 @@ function vidasContador() {
             break
         default:
             vidasComputadora.innerHTML = '';
-            botonAtacar.disabled = true;
-            botonAtacar.setAttribute('id', 'disabled');
+            botonAtacarDeshabilitar()
             resultadoDeBatalla(fraseFinalGanadoraP)
     }
 }
 
+function mostrarMensajeTemporal(mensaje, duracion) {
+    htmlFraseAleatoria.innerHTML = mensaje;
+
+    setTimeout(function () {
+        htmlFraseAleatoria.innerHTML = '';
+    }, duracion);
+}
+
+function botonAtacarHabilitar() {
+    botonAtacar.disabled = false;
+    botonAtacar.removeAttribute('id');
+}
+
+function botonAtacarDeshabilitar() {
+    botonAtacar.disabled = true;
+    botonAtacar.setAttribute('id', 'disabled');
+}
+
+
 // Frases de batalla
+
 function fraseAleatoriaGanadora() {
+    botonAtacarHabilitar()
     let frasesGanadoras = [
         `<b>${nombreJugador}</b> aplasta al temible <b>Esqueleto Infernal</b> con su poderosa <b>${jugadorArma}</b>. El monstruo se retira acabado, mientras ${nombreJugador} celebra su victoria y se prepara para nuevos desafíos. <b>GANASTE</b>.`,
 
@@ -230,6 +273,7 @@ function fraseAleatoriaGanadora() {
 }
 
 function fraseAleatoriaPerdedora() {
+    botonAtacarHabilitar()
     let frasesPerdedoras = [
         `<b>${nombreJugador}</b> desata el poder de la <b>${jugadorArma}</b> contra el temible <b>Esqueleto Infernal</b>. Sin embargo, el Esqueleto Infernal responde con un feroz ataque de su <b>${computadoraArma}</b>. Lamentablemente, ${nombreJugador} sufre una derrota en esta épica batalla. <b>PIERDES</b>`,
 
@@ -248,6 +292,7 @@ function fraseAleatoriaPerdedora() {
 }
 
 function fraseAleatoriaEmpate() {
+    botonAtacarHabilitar()
     let frasesEmpate = [
         `<b>${nombreJugador}</b> y el <b>Esqueleto Infernal</b> desatan el poderío de la <b>${jugadorArma}</b> en un enfrentamiento épico. Sus ataques chocan con una fuerza arrolladora, pero ninguno de ellos logra prevalecer. La batalla termina en un empate, dejando a ambos luchadores exhaustos pero determinados a continuar la lucha. <b>EMPATE</b>.`,
 

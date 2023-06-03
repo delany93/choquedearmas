@@ -377,6 +377,10 @@ input[type="radio"]:checked+label {
         margin-top: 20px;
     }
 
+    .batalla-chat p {
+        font-size: 17px  !important;
+    }
+
     .personaje-usuario {
         height: 370px;
     }
@@ -455,6 +459,10 @@ input[type="radio"]:checked+label {
         width: 100%;
         max-width: 310px;
         margin-top: 20px;
+    }
+
+    .batalla-chat p {
+        font-size: 17px !important;
     }
 
     .personaje-usuario {
