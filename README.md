@@ -1,6 +1,6 @@
 # Choque de Armas
 
-![Choque de Armas](https://delany93.github.io/choquedearmas/)
+[Choque de Armas](https://delany93.github.io/choquedearmas/)
 
 ## Descripción
 
