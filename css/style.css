@@ -287,7 +287,7 @@ input[type="radio"]:checked+label {
     position: absolute;
     text-decoration: none;
     font-size: 18px;
-    bottom: 2%;
+    bottom: 0%;
     left: 0%;
 }
 /* rayitas animation */
