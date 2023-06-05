@@ -56,4 +56,4 @@ Las contribuciones son bienvenidas. Si encuentras algún error, tienes sugerenci
 
 ## Licencia
 
-Este proyecto se distribuye bajo la [Licencia MIT](LICENSE).
+Este proyecto se distribuye bajo la [Licencia MIT](https://github.com/delany93/choquedearmas/blob/main/LICENSE).
