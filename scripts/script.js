@@ -302,7 +302,7 @@ function fraseAleatoriaEmpate() {
 
         `<b>${nombreJugador}</b> y el <b>Esqueleto Infernal</b> libran un duelo impresionante con la <b>${jugadorArma}</b>. Sus movimientos son ágiles y precisos, entrelazando sus filos en una danza de habilidad y destreza. Sin embargo, ninguno de ellos logra alcanzar la victoria, y el enfrentamiento termina en un empate. <b>EMPATE</b>.`,
 
-        `<b>${nombreJugador}</b> y el <b>Esqueleto Infernal</b> se enfrentan con sus letales <b>${jugadorArma}</b> en una batalla llena de velocidad y agilidad. Sus movimientos son rápidos y precisos, sin embargo, ninguno logra obtener la ventaja sobre el otro. La batalla culmina en un empate, dejando a ambos guerreros con la sensación de que aún hay mucho por demostrar en futuros encuentros. <b>EMPATE</b>.`
+        `<b>${nombreJugador}</b> y el <b>Esqueleto Infernal</b> se enfrentan con la gran <b>${jugadorArma}</b> en una batalla llena de velocidad y agilidad. Aunque sus movimientos son rápidos y precisos, no logra obtener la ventaja sobre el otro. La batalla culmina en empate, dejando a ambos con la sensación de que aún hay mucho por demostrar. <b>EMPATE</b>.`
 
     ]
 
