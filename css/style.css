@@ -412,6 +412,14 @@ input[type="radio"]:checked+label {
     .juego {
         width: 400px;
     }
+
+    #boton-final {
+        font-size: 18px;
+        text-decoration: none;
+        position: unset;
+        bottom: unset;
+        left: unset;
+    }
 }
 
 @media (max-width: 409px) {
@@ -509,6 +517,14 @@ input[type="radio"]:checked+label {
 
     .juego {
         width: 310px;
+    }
+
+    #boton-final {
+        font-size: 18px;
+        text-decoration: none;
+        position: unset;
+        bottom: unset;
+        left: unset;
     }
 }
 
